@@ -1,0 +1,97 @@
+<html lang="ja">
+        <head>
+                <title>Multiplication Table</title>
+        </head>
+        <body>
+        <script>
+                const col0 = "#000000";
+                const col1 = "#0000FF";
+                const col2 = "#FF0000";
+                const col3 = "#FF00FF";
+                const col4 = "#00FF00";
+                const col5 = "#00FFFF";
+                const col6 = "#FFFF00";
+                const col7 = "#FFFFFF";
+                const col8 = "#777777";
+                const col9 = "#0000AA";
+                const colA = "#AA0000";
+                const colB = "#AA00AA";
+
+                const TitleType = ' bgcolor="#DDDDDD" align="center"';
+                const DataType = ' bgcolor="#BBBBBB" align="center"';
+
+                document.write('<table border=1>');
+                document.write('Multiplication Table');
+                document.write('<td' + TitleType + '></td>');
+                for( let idxx = 2 ; idxx <= 9 ; idxx ++ )
+                {
+                        document.write('<td' + TitleType + '>' + GetColData( idxx ) + '</td>');
+                }
+                for( let idxy = 2 ; idxy <= 9 ; idxy ++ )
+                {
+                        document.write('<tr>');
+                        document.write('<td' + TitleType + '>' + GetColData( idxy ) + '</td>');
+                        for( let idxx = 2 ; idxx <= 9 ; idxx ++ )
+                        {
+                                document.write('<td' + DataType + '>');
+                                document.write( GetColData( idxx * idxy ) );
+                                document.write('</td>');
+                        }
+                        document.write('</tr>');
+                }
+                document.write('</table>');
+
+                //
+                function GetColData( GetData )
+                {
+                        StrData = String( GetData );
+                        RetStr = GetColSgl( StrData.charAt( 0 ) );
+                        RetStr = RetStr + GetColSgl( StrData.charAt( 1 ) );
+                        return RetStr;
+                }
+
+                //
+                function GetColSgl( GetData )
+                {
+                        switch( GetData )
+                        {
+                                case '0':
+                                        RetCol = col0;
+                                        break;
+                                case '1':
+                                        RetCol = col1;
+                                        break;
+                                case '2':
+                                        RetCol = col2;
+                                        break;
+                                case '3':
+                                        RetCol = col3;
+                                        break;
+                                case '4':
+                                        RetCol = col4;
+                                        break;
+                                case '5':
+                                        RetCol = col5;
+                                        break;
+                                case '6':
+                                        RetCol = col6;
+                                        break;
+                                case '7':
+                                        RetCol = col7;
+                                        break;
+                                case '8':
+                                        RetCol = col8;
+                                        break;
+                                case '9':
+                                        RetCol = col9;
+                                        break;
+                                default:
+                                        return GetData;
+                        }
+                        RetStr = '<font color=' + RetCol + '>' + GetData + '</font>';
+                        RetStr = '<b>' + RetStr + '</b>';
+                        return RetStr;
+                }
+        </script>
+        </body>
+</html>
